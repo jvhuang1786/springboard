@@ -1,0 +1,38 @@
+####Titanic readme 
+
+**str(titanic)**
+
+    *This checks the structure of the titanic data frame. 
+\
+
+**ggplot(titanic, aes(x = Pclass, fill = Sex)) + geom_bar(position = "dodge")**
+
+
+    *This calls ggplot from the ggplot2 package.  Inside we set the x axis as Pclass and fill as sex which separates male from female.  (Light red female and light blue for male.) 
+    *geom_bar creates a bar chart. 
+    *Position dodge has them stack side by side. Without it they would stack on top of each other. 
+    
+\
+
+**ggplot(titanic, aes(x = Pclass, fill = Sex)) + geom_bar(position = "dodge") + facet_grid(.~Survived)**
+    
+    *Separates facet into columns based on survived
+
+\
+
+
+**posn.jd <- position_jitterdodge(0.5, 0, 0.6)**
+    
+    *This will avoid overlapping when we plot it as points.  Without this male and female would overlap each other. 
+    *Jitter- adding random noise to prevent overplotting. 
+    *Jitter width- Degree of jitter in x direction
+    *Jitter Height – degree of jitter in y direction
+    *Dodge width – amount of dodge in x direction.  
+    
+\
+
+**ggplot(titanic, aes(x = Pclass, y = Age, color = Sex)) + geom_point(size = 3, alpha = 0.5, position = posn.jd) + facet_grid(.~Survived)**
+
+    *geom_point plot as dots instead of bars. 
+    *Alpha is the transparency of the dots. 
+    *Size is the size of the dot. 
